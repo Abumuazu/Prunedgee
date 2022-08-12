@@ -4,7 +4,7 @@ import { TxKeyPath } from "../../i18n"
 
 export interface HeaderProps {
   /**
-   * Main header, e.g. POWERED BY IGNITE
+   * Main header
    */
   headerTx?: TxKeyPath
 

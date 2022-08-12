@@ -3,7 +3,7 @@
 # Setup Script
 #
 # Runs all the needed commands to set up a developer's system to run this app.
-# Customize this as your app grows.
+# can be Customized as app grows.
 
 # Check for macOS
 if [[ ! "$OSTYPE" =~ ^darwin ]]; then
@@ -110,3 +110,4 @@ echo "----------------------------------------------------------"
 
 echo "To run the app on iOS:"
 echo "react-native run-ios"
+

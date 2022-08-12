@@ -1,61 +1,61 @@
-import React from "react"
-import { View, ViewStyle, TextStyle } from "react-native"
-import { HeaderProps } from "./header.props"
-import { Button } from "../button/button"
-import { Text } from "../text/text"
-import { Icon } from "../icon/icon"
-import { spacing } from "../../theme"
-import { translate } from "../../i18n/"
+import { Button, Text, Box, Input, Stack, HStack, Pressable, Center } from "native-base"
+import React, { FC, ReactNode } from "react"
 
-// static styles
-const ROOT: ViewStyle = {
-  flexDirection: "row",
-  paddingHorizontal: spacing[4],
-  alignItems: "center",
-  paddingTop: spacing[5],
-  paddingBottom: spacing[5],
-  justifyContent: "flex-start",
+interface IHeader {
+  Left?: string | ReactNode
+  Right?: string
+  CenterText: string
+  rightColor?: string
+  leftColor?: string
+  nextNavigation?: any
+  backNavigation?: any
 }
-const TITLE: TextStyle = { textAlign: "center" }
-const TITLE_MIDDLE: ViewStyle = { flex: 1, justifyContent: "center" }
-const LEFT: ViewStyle = { width: 32 }
-const RIGHT: ViewStyle = { width: 32 }
-
-/**
- * Header that appears on many screens. Will hold navigation buttons and screen title.
- */
-export function Header(props: HeaderProps) {
-  const {
-    onLeftPress,
-    onRightPress,
-    rightIcon,
-    leftIcon,
-    headerText,
-    headerTx,
-    style,
-    titleStyle,
-  } = props
-  const header = headerText || (headerTx && translate(headerTx)) || ""
-
+const Header: FC<IHeader> = ({ Left, Right, CenterText, rightColor, leftColor, nextNavigation, backNavigation }) => {
   return (
-    <View style={[ROOT, style]}>
-      {leftIcon ? (
-        <Button preset="link" onPress={onLeftPress}>
-          <Icon icon={leftIcon} />
-        </Button>
+    <Stack direction="row" space={20} justifyContent="center" alignItems="center" mb='3'>
+      {Left ? (
+        <Pressable onPress={backNavigation}   bg="transparent" color={leftColor ? leftColor : 'black.500'}>
+        <Text color={leftColor ? leftColor : 'black.500'}>{Left}</Text>
+        </Pressable>
+
       ) : (
-        <View style={LEFT} />
+        <Center
+          bg="transparent"
+          _text={{
+            color: "white",
+            fontWeight: "bold",
+          }}
+          height={30}
+          width={{
+            base: 50,
+            lg: 90,
+          }}
+        ></Center>
       )}
-      <View style={TITLE_MIDDLE}>
-        <Text style={[TITLE, titleStyle]} text={header} />
-      </View>
-      {rightIcon ? (
-        <Button preset="link" onPress={onRightPress}>
-          <Icon icon={rightIcon} />
-        </Button>
+
+      <Text fontSize="3xl" bold color="black.500">
+        {CenterText}
+      </Text>
+      {Right ? (
+        <Pressable onPress={nextNavigation}>
+        <Text color={rightColor ? rightColor : '#000'}>{Right}</Text>
+        </Pressable>
+
       ) : (
-        <View style={RIGHT} />
+        <Center 
+          bg="transparent"
+          _text={{
+            color: "white",
+            fontWeight: "bold",
+          }}
+          height={30}
+          width={{
+            base: 50,
+            lg: 90,
+          }}
+        ></Center>
       )}
-    </View>
+    </Stack>
   )
 }
+export default Header

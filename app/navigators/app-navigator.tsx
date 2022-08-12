@@ -8,7 +8,7 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Signup } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
-import { Login } from "../screens/Signup/Login"
+import { Login } from "../screens/Login/Login"
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
  * as well as what properties (if any) they might take when navigating to them.

@@ -7,12 +7,13 @@ import {InputField, Password} from '../../components/Button/Input/Input'
 import Header from '../../components/header/header'
 export const Login = ({navigation}) => {
   const goBack = () => navigation.goBack()
+  const next = () => navigation.navigate('signup')
   return (
    <Screen backgroundColor="#5DB075" >
 
 <VStack paddingX={4} height={51} paddingY={2.5} bg='white.500' flex={1} space={4} alignItems="center">
 
-     <Header Left='Back' CenterText='Login' Right='sign up' rightColor='primary.500' backNavigation={goBack} />
+     <Header Left='Back' CenterText='Login' Right='sign up' rightColor='primary.500' backNavigation={goBack} nextNavigation={next}/>
       <InputField  Placeholder ='Name'/>
       <Password Placeholder = 'password'  />
       <Center

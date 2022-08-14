@@ -1,20 +1,12 @@
 import React, { useState } from "react"
 import { Screen, Header } from "../../components"
-import { ListStandard } from "../../components/List";
-import {
-  Box,
-  Text,
-  VStack,
-  Center,
-  Avatar,
-} from "native-base";
-import Toggle from "./ProfileScreenComponent/Toggle";
-import ProfileLists from "./ProfileScreenComponent/ProfileLists";
-import ProfilePhotos from "./ProfileScreenComponent/ProfilePhotos";
-
+import { Box, Text, VStack, Center, Avatar,  ScrollView } from "native-base"
+import Toggle from "./ProfileScreenComponent/Toggle"
+import ProfileLists from "./ProfileScreenComponent/ProfileLists"
+import ProfilePhotos from "./ProfileScreenComponent/ProfilePhotos"
 
 export const Profile = ({ navigation }) => {
-  //local states 
+  //local states
   const [posts, setPosts] = useState<boolean>(true)
   const [photos, setPhotos] = useState<boolean>(false)
   const Next = () => navigation.navigate("signup")
@@ -63,10 +55,23 @@ export const Profile = ({ navigation }) => {
             A mantra goes here
           </Text>
         </Center>
-       <Toggle posts ={posts} setPosts={setPosts} showPosts={showPosts} firstLabel='Posts' photos={photos} setPhotos={setPhotos} showPhotos={showPhotos} secondLabel='Photos' />
+        <Toggle
+          posts={posts}
+          setPosts={setPosts}
+          showPosts={showPosts}
+          firstLabel="Posts"
+          photos={photos}
+          setPhotos={setPhotos}
+          showPhotos={showPhotos}
+          secondLabel="Photos"
+        />
 
         {posts && <ProfileLists />}
-        {photos && <ProfilePhotos />}
+        {photos && (
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <ProfilePhotos />
+          </ScrollView>
+        )}
       </VStack>
     </Screen>
   )

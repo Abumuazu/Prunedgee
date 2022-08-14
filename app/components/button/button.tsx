@@ -1,14 +1,25 @@
-import {Button, Text } from 'native-base'
-import React, { FC } from 'react'
+import { Button, Text } from "native-base"
+import React, { FC } from "react"
 interface Iprops {
-    // borderRadius: string
-    text: string
+  // borderRadius: string
+  text: string
+  nextNavigation?: any
 }
-const FullButton: FC<Iprops> = ({text}) => {
+const FullButton: FC<Iprops> = ({ text, nextNavigation }) => {
   return (
-    <Button width='100%' height='7%' size='lg' borderRadius="full" background='primary.500' >
-  <Text fontSize='md' bold> {text}  </Text>
-  </Button>
+    <Button
+    padding='3.5'
+      width="100%"
+      onPress={nextNavigation}
+      size="lg"
+      borderRadius="full"
+      background="primary.500"
+    >
+      <Text fontSize="md" bold>
+    
+        {text}
+      </Text>
+    </Button>
   )
 }
 

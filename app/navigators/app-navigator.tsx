@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { Signup } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
 import { Login } from "../screens/Login/Login"
+import { Profile } from "../screens/Profile/Profile"
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
  * as well as what properties (if any) they might take when navigating to them.
@@ -17,6 +18,7 @@ import { Login } from "../screens/Login/Login"
 export type NavigatorParamList = {
   signup: undefined
   login: undefined
+  profile: undefined
   // 🔥 Your screens go here
 }
 
@@ -32,6 +34,7 @@ const AppStack = () => {
     >
       <Stack.Screen name="signup" component={Signup} />
       <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="profile" component={Profile} />
 
       {/** 🔥 Your screens go here */}
     </Stack.Navigator>

@@ -11,7 +11,7 @@ export  const Nativetheme = extendTheme({
         fill: '#F6F6F6'
       },
       white: {
-      500: '#FCFCFE'
+      500: '#FFFFFF'
       },
       black: {
        500: '#000'

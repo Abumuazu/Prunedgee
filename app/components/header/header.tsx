@@ -1,4 +1,4 @@
-import { Button, Text, Box, Input, Stack, HStack, Pressable, Center } from "native-base"
+import { Text, Stack, Pressable, Center } from "native-base"
 import React, { FC, ReactNode } from "react"
 
 interface IHeader {
@@ -9,15 +9,29 @@ interface IHeader {
   leftColor?: string
   nextNavigation?: any
   backNavigation?: any
+  CenterColor?: string
 }
-const Header: FC<IHeader> = ({ Left, Right, CenterText, rightColor, leftColor, nextNavigation, backNavigation }) => {
-  return (
-    <Stack direction="row" space={20} justifyContent="center" alignItems="center" mb='3'>
-      {Left ? (
-        <Pressable onPress={backNavigation}   bg="transparent" color={leftColor ? leftColor : 'black.500'}>
-        <Text color={leftColor ? leftColor : 'black.500'}>{Left}</Text>
-        </Pressable>
 
+const Header: FC<IHeader> = ({
+  Left,
+  Right,
+  CenterText,
+  rightColor,
+  leftColor,
+  CenterColor,
+  nextNavigation,
+  backNavigation,
+}) => {
+  return (
+    <Stack direction="row" paddingX='2' space={20} justifyContent="center" alignItems="center" mb="3">
+      {Left ? (
+        <Pressable
+          onPress={backNavigation}
+          bg="transparent"
+          color={leftColor ? leftColor : "black.500"}
+        >
+          <Text color={leftColor ? leftColor : "black.500"}>{Left}</Text>
+        </Pressable>
       ) : (
         <Center
           bg="transparent"
@@ -33,16 +47,15 @@ const Header: FC<IHeader> = ({ Left, Right, CenterText, rightColor, leftColor, n
         ></Center>
       )}
 
-      <Text fontSize="3xl" bold color="black.500">
+      <Text fontSize="3xl" bold color={CenterColor ? CenterColor : "black.500"}>
         {CenterText}
       </Text>
       {Right ? (
         <Pressable onPress={nextNavigation}>
-        <Text color={rightColor ? rightColor : '#000'}>{Right}</Text>
+          <Text color={rightColor ? rightColor : "#000"}>{Right}</Text>
         </Pressable>
-
       ) : (
-        <Center 
+        <Center
           bg="transparent"
           _text={{
             color: "white",

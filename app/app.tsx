@@ -12,10 +12,13 @@ import {Nativetheme} from './theme/Nativetheme'
  */
  const queryClient = new QueryClient();
 function App() {
-
+  const inset = {
+    frame: { x: 0, y: 0, width: 0, height: 0 },
+    insets: { top: 0, left: 0, right: 0, bottom: 0 },
+  };
   return (
 
-    <NativeBaseProvider theme={Nativetheme}>
+    <NativeBaseProvider initialWindowMetrics={inset} theme={Nativetheme}>
     <QueryClientProvider client={queryClient}>
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <ErrorBoundary catchErrors={"always"}>

@@ -6,11 +6,17 @@ import { InputField, Password } from "../../components/Input/Input"
 import Header from "../../components/header/header"
 import { Image } from "react-native"
 export const Profile = ({ navigation }) => {
-  const [Posts, setPosts] = useState(true)
+  const [posts, setPosts] = useState(true)
   const [photos, setPhotos] = useState(false)
   const Next = () => navigation.navigate("signup")
-
-
+function showPosts () {
+  setPosts(true)
+  setPhotos(false)
+}
+function showPhotos () {
+  setPosts(false)
+  setPhotos(true)
+}
   return (
     <Screen backgroundColor="#5DB075">
       <VStack
@@ -32,13 +38,20 @@ export const Profile = ({ navigation }) => {
         <Text color='black.500' fontSize="4xl" fontWeight={500}>Victoria Robertso</Text>
         <Text color='black.500' fontSize="md" fontWeight={400}> A mantra goes here</Text>
         </Center>
-
-        {/* <Box mx='8' bg='gray.fill' borderStyle='solid' borderWidth='2' borderColor='gray.border' rounded='full' >
+{/* //toggle component */}
+        <Box mx='8' bg='gray.fill' borderStyle='solid' borderWidth='2' borderColor='gray.border' rounded='full' >
 <HStack>
-<Pressable onPress={showPosts} bg='white.500' rounded='full' width='1/2' padding='3'><Center _text={{color: active ? 'primary.500' : 'black.500'}}>Posts</Center></Pressable>
-<Pressable onPress={showPosts}  bg='white.500' rounded='full' width='1/2' padding='3'><Center _text={{color: !active ? 'primary.500' : 'black.500' }}>Photos</Center></Pressable>
+<Pressable onPress={showPosts} bg= {posts ? 'white.500' : 'gray.fill'} rounded={posts ? 'full' : 'none' } width='1/2' padding='3'><Center _text={{color: posts ? 'primary.500' : 'gray.text'}}>Posts</Center></Pressable>
+<Pressable onPress={showPhotos}  bg= {photos ? 'white.500' : 'gray.fill'} rounded={photos ? 'full' : 'none'}  width='1/2' padding='3'><Center _text={{color: photos ? 'primary.500' : 'gray.text' }}>Photos</Center></Pressable>
 </HStack>
-        </Box> */}
+        </Box>
+
+        {
+          posts && <Text color='black.500'>Post me</Text>
+        }
+         {
+          photos && <Text color='black.500'>Photo me</Text>
+        }
       </VStack>
     </Screen>
   )

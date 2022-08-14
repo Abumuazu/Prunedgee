@@ -1,6 +1,6 @@
 import "./i18n"
 import "./utils/ignore-warnings"
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"
 import { AppNavigator } from "./navigators"
 import { ErrorBoundary } from "./screens/error/error-boundary"

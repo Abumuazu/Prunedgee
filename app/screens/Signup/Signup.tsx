@@ -12,6 +12,7 @@ interface ISignup {
 export const Signup: FC<ISignup> = ({ navigation }) => {
   // const [checkBoxValues, setCheckBoxValues ] = useState('');
   const Next = () => navigation.navigate("profile")
+  const Login = () => navigation.navigate("login")
   return (
     <Screen backgroundColor="#5DB075">
       <VStack
@@ -24,7 +25,7 @@ export const Signup: FC<ISignup> = ({ navigation }) => {
         alignItems="center"
         style={{ paddingHorizontal: 10 }}
       >
-        <Header CenterText="Sign Up" Right="Login" rightColor="primary.500" nextNavigation={Next} />
+        <Header CenterText="Sign Up" Right="Login" rightColor="primary.500" nextNavigation={Login} />
         <InputField Placeholder="Name" />
         <InputField Placeholder="Email" />
         <Password Placeholder="password" />

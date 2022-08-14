@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Screen, Header } from "../../components"
+import { ListStandard } from "../../components/List";
 import {
   Box,
   Text,
@@ -8,7 +9,8 @@ import {
   Avatar,
 } from "native-base";
 import Toggle from "./ProfileScreenComponent/Toggle";
-import List from "../../components/List/ListStandard";
+import ProfileLists from "./ProfileScreenComponent/ProfileLists";
+import ProfilePhotos from "./ProfileScreenComponent/ProfilePhotos";
 
 
 export const Profile = ({ navigation }) => {
@@ -61,12 +63,10 @@ export const Profile = ({ navigation }) => {
             A mantra goes here
           </Text>
         </Center>
-        {/* //toggle component */}
        <Toggle posts ={posts} setPosts={setPosts} showPosts={showPosts} firstLabel='Posts' photos={photos} setPhotos={setPhotos} showPhotos={showPhotos} secondLabel='Photos' />
 
-
-        {posts && <List />}
-        {photos && <Text color="black.500">Photo me</Text>}
+        {posts && <ProfileLists />}
+        {photos && <ProfilePhotos />}
       </VStack>
     </Screen>
   )

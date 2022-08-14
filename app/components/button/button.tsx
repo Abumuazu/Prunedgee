@@ -5,7 +5,7 @@ interface Iprops {
   text: string
   nextNavigation?: any
 }
-const FullButton: FC<Iprops> = ({ text, nextNavigation }) => {
+export const FullButton: FC<Iprops> = ({ text, nextNavigation }) => {
   return (
     <Button
     padding='3.5'
@@ -23,4 +23,4 @@ const FullButton: FC<Iprops> = ({ text, nextNavigation }) => {
   )
 }
 
-export default FullButton
+ 

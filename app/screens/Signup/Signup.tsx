@@ -1,10 +1,9 @@
 import React from "react"
-import { Screen } from "../../components"
+import { Screen, FullButton, Header } from "../../components"
 import { Box, Text, VStack, Checkbox } from "native-base"
-import FullButton from "../../components/Button/Button"
-import { InputField, Password } from "../../components/Input/Input"
-import Header from "../../components/header/header"
+import { InputField, Password } from "../../components/Input/Index"
 import { TouchableOpacity } from "react-native"
+
 export const Signup = ({ navigation }) => {
   const Next = () => navigation.navigate("profile")
   return (

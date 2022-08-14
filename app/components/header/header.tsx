@@ -7,12 +7,12 @@ interface IHeader {
   CenterText: string
   rightColor?: string
   leftColor?: string
-  nextNavigation?: any
-  backNavigation?: any
+  nextNavigation?(): void
+  backNavigation?(): void
   CenterColor?: string
 }
 
-const Header: FC<IHeader> = ({
+export const Header: FC<IHeader> = ({
   Left,
   Right,
   CenterText,
@@ -71,4 +71,4 @@ const Header: FC<IHeader> = ({
     </Stack>
   )
 }
-export default Header
+

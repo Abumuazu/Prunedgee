@@ -1,10 +1,16 @@
-import React from "react"
+import React, { FC } from "react"
 import { Screen, FullButton, Header } from "../../components"
 import { Box, Text, VStack, Checkbox } from "native-base"
 import { InputField, Password } from "../../components/Input/Index"
 import { TouchableOpacity } from "react-native"
 
-export const Signup = ({ navigation }) => {
+interface ISignup {
+  onChange?: (isSelected: boolean) => void
+  value?: any
+  navigation: any
+}
+export const Signup: FC<ISignup> = ({ navigation }) => {
+  // const [checkBoxValues, setCheckBoxValues ] = useState('');
   const Next = () => navigation.navigate("profile")
   return (
     <Screen backgroundColor="#5DB075">
@@ -23,16 +29,10 @@ export const Signup = ({ navigation }) => {
         <InputField Placeholder="Email" />
         <Password Placeholder="password" />
         <Box px="1.5" marginY="5" marginX="2">
-          <Checkbox
-            alignItems="center"
-            isChecked={true}
-            colorScheme="green"
-            value=""
-            _text={{ color: "black.500", paddingRight: 3, fontWeight: 300 }}
-            justifyContent="flex-start"
-          >
-            I would like to receive your newsletter and other promotional information.
-          </Checkbox>
+
+          <Checkbox bg='gray.fill' borderStyle='solid' borderWidth='2' borderColor='gray.border' value='I would like to receive your newsletter and other promotional information.' _text={{color:'black'}} accessibilityLabel="choose numbers">
+           I would like to receive your newsletter and other promotional information.
+    </Checkbox>
         </Box>
         <FullButton nextNavigation={Next} text="Sign Up" />
         <TouchableOpacity onPress={() => ""}>

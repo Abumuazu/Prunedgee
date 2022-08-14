@@ -15,18 +15,19 @@ interface IToggle {
 const Toggle: FC<IToggle> = ({ posts, setPosts, showPosts,firstLabel,  photos, setPhotos, showPhotos, secondLabel }) => {
   return (
     <Box
-      mx="8"
+      mx="4"
       bg="gray.fill"
       borderStyle="solid"
       borderWidth="2"
       borderColor="gray.border"
       rounded="full"
+      // shadow='1'
     >
-      <HStack>
+      <HStack  >
         <Pressable
           onPress={showPosts}
           bg={posts ? "white.500" : "gray.fill"}
-          rounded={posts ? "full" : "none"}
+          rounded="full"
           width="1/2"
           padding="3"
         >
@@ -35,7 +36,7 @@ const Toggle: FC<IToggle> = ({ posts, setPosts, showPosts,firstLabel,  photos, s
         <Pressable
           onPress={showPhotos}
           bg={photos ? "white.500" : "gray.fill"}
-          rounded={photos ? "full" : "none"}
+          rounded="full"
           width="1/2"
           padding="3"
         >

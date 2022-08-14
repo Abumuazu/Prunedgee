@@ -8,6 +8,7 @@ import {
   Avatar,
 } from "native-base";
 import Toggle from "./ProfileScreenComponent/Toggle";
+import List from "../../components/List/ListStandard";
 
 
 export const Profile = ({ navigation }) => {
@@ -64,7 +65,7 @@ export const Profile = ({ navigation }) => {
        <Toggle posts ={posts} setPosts={setPosts} showPosts={showPosts} firstLabel='Posts' photos={photos} setPhotos={setPhotos} showPhotos={showPhotos} secondLabel='Photos' />
 
 
-        {posts && <Text color="black.500">Post me</Text>}
+        {posts && <List />}
         {photos && <Text color="black.500">Photo me</Text>}
       </VStack>
     </Screen>

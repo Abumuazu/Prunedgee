@@ -10,7 +10,7 @@ export const Login = ({ navigation }) => {
   const next = () => navigation.navigate("signup")
   const insight = () => navigation.navigate("insight")
   return (
-    <Screen backgroundColor="#5DB075">
+    <Screen backgroundColor="#fff" preset="fixed" statusBar='dark-content'>
       <VStack
         paddingX={4}
         height={51}

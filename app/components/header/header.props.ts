@@ -1,36 +1,12 @@
-import { StyleProp, TextStyle, ViewStyle } from "react-native"
-import { TxKeyPath } from "../../i18n"
+import { ReactNode } from "react"
 
-export interface HeaderProps {
-  /**
-   * Main header
-   */
-  headerTx?: TxKeyPath
-
-  /**
-   * header non-i18n
-   */
-  headerText?: string
-
-
-  /**
-   * What happens when you press the left icon
-   */
-  onLeftPress?(): void
-
-
-  /**
-   * What happens when you press the right icon
-   */
-  onRightPress?(): void
-
-  /**
-   * Container style overrides.
-   */
-  style?: StyleProp<ViewStyle>
-
-  /**
-   * Title style overrides.
-   */
-  titleStyle?: StyleProp<TextStyle>
+export interface IHeaderProps {
+  Left?: string | ReactNode
+  Right?: string
+  CenterText: string
+  rightColor?: string
+  leftColor?: string
+  nextNavigation?(): void
+  backNavigation?(): void
+  CenterColor?: string
 }

@@ -1,18 +1,9 @@
 import { Text, Stack, Pressable, Center } from "native-base"
-import React, { FC, ReactNode } from "react"
+import React, { FC } from "react"
+import { IHeaderProps } from "./header.props"
 
-interface IHeader {
-  Left?: string | ReactNode
-  Right?: string
-  CenterText: string
-  rightColor?: string
-  leftColor?: string
-  nextNavigation?(): void
-  backNavigation?(): void
-  CenterColor?: string
-}
 
-export const Header: FC<IHeader> = ({
+export const Header: FC<IHeaderProps> = ({
   Left,
   Right,
   CenterText,

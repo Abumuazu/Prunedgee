@@ -1,9 +1,8 @@
 import { Input } from "native-base"
 import React, { FC } from "react"
+import { IInput } from "./input.props"
 
-interface IInput {
-  Placeholder?: string
-}
+
 
 export const InputField: FC<IInput> = ({ Placeholder }) => {
   return (

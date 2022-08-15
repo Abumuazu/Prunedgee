@@ -91,11 +91,13 @@ function ScreenWithScrolling(props: ScreenProps) {
       />
       <View style={[preset.outer, backgroundStyle, insetStyle]}>
         <ScrollView
+
           style={[preset.outer, backgroundStyle]}
           contentContainerStyle={[preset.inner, style]}
           keyboardShouldPersistTaps={props.keyboardShouldPersistTaps || "handled"}
           onContentSizeChange={props.preset === "auto" ? onContentSizeChange : undefined}
           scrollEnabled={scrollEnabled}
+          showsVerticalScrollIndicator={false}
         >
           {props.children}
         </ScrollView>

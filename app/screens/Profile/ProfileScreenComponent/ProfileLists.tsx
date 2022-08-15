@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from "react-native"
 import React from "react"
-import { profileListData } from "../mock-data"
-import { IList, ListStandard } from "../../../components/List/ListStandard"
+import { profileListData } from "../../../models/mock-data"
+import {ListStandard } from "../../../components/List/ListStandard"
 
 export const ProfileLists = () => {
   const _renderItem = ({ item }: any) => (
@@ -12,6 +12,9 @@ export const ProfileLists = () => {
       showsVerticalScrollIndicator={false}
       data={profileListData}
       renderItem={_renderItem}
+      keyExtractor={item => item.header}
+      removeClippedSubviews
+      refreshing={true}
     />
   )
 }

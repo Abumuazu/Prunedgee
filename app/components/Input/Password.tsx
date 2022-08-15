@@ -1,9 +1,8 @@
 import { Text, Input, Pressable } from "native-base"
 import React, { FC } from "react"
+import { IPassword } from "./input.props"
 
-interface IPassword {
-  Placeholder?: string
-}
+
 
 export const Password: FC<IPassword> = ({ Placeholder }) => {
   const [show, setShow] = React.useState(false)

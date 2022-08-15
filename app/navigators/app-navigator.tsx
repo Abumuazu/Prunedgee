@@ -6,11 +6,9 @@ import React from "react"
 import { useColorScheme } from "react-native"
 import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Signup } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
-import { Login } from "../screens/Login/Login"
-import { Profile } from "../screens/Profile/Profile"
 import { Host } from "react-native-portalize"
+import { Insight, Profile, Login, Signup } from "../screens"
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
  * as well as what properties (if any) they might take when navigating to them.
@@ -20,7 +18,7 @@ export type NavigatorParamList = {
   signup: undefined
   login: undefined
   profile: undefined
-  // 🔥 Your screens go here
+  insight: undefined
 }
 
 const Stack = createNativeStackNavigator<NavigatorParamList>()
@@ -36,8 +34,7 @@ const AppStack = () => {
       <Stack.Screen name="signup" component={Signup} />
       <Stack.Screen name="login" component={Login} />
       <Stack.Screen name="profile" component={Profile} />
-
-      {/** 🔥 Your screens go here */}
+      <Stack.Screen name="insight" component={Insight} />
     </Stack.Navigator>
   )
 }

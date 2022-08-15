@@ -1,11 +1,8 @@
 import React, { FC } from "react"
 import { Box, Heading, HStack, VStack, Text, Divider } from "native-base"
+import { IList } from "./Lust.props"
 
-export interface IList {
-  header?: string
-  time?: string
-  subtitle?: string
-}
+
 export const ListStandard: FC<IList> = ({ header, time, subtitle }) => {
   return (
     <HStack mx="6" mt="5" space={4}>

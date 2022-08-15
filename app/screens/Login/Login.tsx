@@ -8,6 +8,7 @@ import { TouchableOpacity } from "react-native"
 export const Login = ({ navigation }) => {
   const goBack = () => navigation.goBack()
   const next = () => navigation.navigate("signup")
+  const insight = () => navigation.navigate("insight")
   return (
     <Screen backgroundColor="#5DB075">
       <VStack
@@ -41,7 +42,7 @@ export const Login = ({ navigation }) => {
             lg: 90,
           }}
         ></Center>
-        <FullButton text="Login" />
+        <FullButton text="Login" nextNavigation={insight} />
         <TouchableOpacity onPress={() => ""}>
           <Text bold color="primary.500">
             Forgot your password??

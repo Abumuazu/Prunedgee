@@ -12,7 +12,16 @@ interface IToggle {
   secondLabel: string
 }
 
-const Toggle: FC<IToggle> = ({ posts, setPosts, showPosts,firstLabel,  photos, setPhotos, showPhotos, secondLabel }) => {
+export const Toggle: FC<IToggle> = ({
+  posts,
+  setPosts,
+  showPosts,
+  firstLabel,
+  photos,
+  setPhotos,
+  showPhotos,
+  secondLabel,
+}) => {
   return (
     <Box
       mx="4"
@@ -23,7 +32,7 @@ const Toggle: FC<IToggle> = ({ posts, setPosts, showPosts,firstLabel,  photos, s
       rounded="full"
       // shadow='1'
     >
-      <HStack  >
+      <HStack>
         <Pressable
           onPress={showPosts}
           bg={posts ? "white.500" : "gray.fill"}
@@ -46,5 +55,3 @@ const Toggle: FC<IToggle> = ({ posts, setPosts, showPosts,firstLabel,  photos, s
     </Box>
   )
 }
-
-export default Toggle

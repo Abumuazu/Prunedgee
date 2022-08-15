@@ -1,15 +1,17 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { Screen, Header } from "../../components"
 import { Box, Text, VStack, Center, Avatar,  ScrollView } from "native-base"
-import Toggle from "./ProfileScreenComponent/Toggle"
-import ProfileLists from "./ProfileScreenComponent/ProfileLists"
-import ProfilePhotos from "./ProfileScreenComponent/ProfilePhotos"
+import { Toggle, ProfileLists, ProfilePhotos } from "./ProfileScreenComponent"
+import { Animated } from "react-native";
+import { Layout } from "../../components/Modals";
+import { Modalize } from "react-native-modalize";
 
 export const Profile = ({ navigation }) => {
   //local states
   const [posts, setPosts] = useState<boolean>(true)
   const [photos, setPhotos] = useState<boolean>(false)
   const Next = () => navigation.navigate("signup")
+
   function showPosts() {
     setPosts(true)
     setPhotos(false)
@@ -18,8 +20,27 @@ export const Profile = ({ navigation }) => {
     setPosts(false)
     setPhotos(true)
   }
+
+  //modal 
+  const modalRef = useRef<Modalize>(null);
+  const animated = useRef(new Animated.Value(0)).current
+  const OpenModal = () => {
+    modalRef.current?.open();
+  };
   return (
-    <Screen backgroundColor="#5DB075">
+
+      <Screen backgroundColor="#5DB075">
+      <Layout 
+         style={{
+          borderRadius: animated.interpolate({ inputRange: [0, 1], outputRange: [0, 12] }),
+          transform: [
+            {
+              scale: animated.interpolate({ inputRange: [0, 1], outputRange: [1, 0.92] }),
+            },
+          ],
+          opacity: animated.interpolate({ inputRange: [0, 1], outputRange: [1, 0.75] }),
+        }}
+      >
       <VStack bg="white.500" flex={1}>
         <Box bg="primary.500" width="100%" height={210}>
           <Header
@@ -65,14 +86,15 @@ export const Profile = ({ navigation }) => {
           showPhotos={showPhotos}
           secondLabel="Photos"
         />
-
         {posts && <ProfileLists />}
         {photos && (
           <ScrollView showsVerticalScrollIndicator={false}>
-            <ProfilePhotos />
+            <ProfilePhotos OpenModal={OpenModal} modalRef={modalRef} />
           </ScrollView>
         )}
       </VStack>
+      </Layout>
     </Screen>
+
   )
 }

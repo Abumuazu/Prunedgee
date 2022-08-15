@@ -10,6 +10,7 @@ import { Signup } from "../screens"
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities"
 import { Login } from "../screens/Login/Login"
 import { Profile } from "../screens/Profile/Profile"
+import { Host } from "react-native-portalize"
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
  * as well as what properties (if any) they might take when navigating to them.
@@ -52,7 +53,9 @@ export const AppNavigator = (props: NavigationProps) => {
       theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
       {...props}
     >
-      <AppStack />
+    <Host>
+    <AppStack />
+    </Host>
     </NavigationContainer>
   )
 }

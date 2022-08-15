@@ -15,9 +15,9 @@ export const ProfilePhotos: FC<IModal> = ({ OpenModal, modalRef }) => {
       <Box
         bg="gray.fill"
         height={300}
-        borderStyle="solid"
-        borderColor="gray.border"
-        borderWidth="2"
+        // borderStyle="solid"
+        // borderColor="gray.border"
+        // borderWidth="2"
         rounded="xl"
       />
       <TouchableOpacity onPress={OpenModal}>

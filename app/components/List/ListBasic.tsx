@@ -6,7 +6,7 @@ export interface IList {
   time?: string
   subtitle?: string
 }
-export const ListStandard: FC<IList> = ({ header, time, subtitle }) => {
+export const ListBasic: FC<IList> = ({ header, time, subtitle }) => {
   return (
     <HStack mx="6" mt="5" space={4}>
       <Box bg="gray.fill" size="12" borderRadius="lg" />

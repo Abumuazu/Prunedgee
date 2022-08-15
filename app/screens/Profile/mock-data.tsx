@@ -1,4 +1,7 @@
-export const profileListData = [{
+
+import { ListStandard } from "../../models/app_model"
+
+export const profileListData: ListStandard[] = [{
     header: 'Header 1', 
     time: '8m ago', 
     subtitle: "He'll want to use your yacht, and I don't want this thing smelling like fish."

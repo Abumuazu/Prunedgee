@@ -12,7 +12,7 @@ export const ProfileLists = () => {
       showsVerticalScrollIndicator={false}
       data={profileListData}
       renderItem={_renderItem}
-      keyExtractor={item => item.header}
+      keyExtractor={item => item.id}
       removeClippedSubviews
       refreshing={true}
     />

@@ -6,7 +6,7 @@ import { InsightList } from "./insightComponent/InsightList"
 
 export const Insight = ({ navigation }) => {
   return (
-    <Screen backgroundColor="#fff" preset="fixed">
+    <Screen backgroundColor="#fff" preset="fixed" statusBar='dark-content'>
       <Layout style={{}}>
         <Header
           CenterText="Insights"
@@ -17,7 +17,9 @@ export const Insight = ({ navigation }) => {
           backNavigation={() => navigation.goBack()}
         />
 
+<Box pb='16'>
 <InsightList />
+</Box>
       </Layout>
     </Screen>
   )

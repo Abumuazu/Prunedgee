@@ -13,7 +13,7 @@ export const InsightList = () => {
 
 <FlatList 
     data={insightListData}
-    keyExtractor={item => item.header}
+    keyExtractor={item => item.id}
     renderItem={_renderItem}
     ItemSeparatorComponent={_ItemSeparatorComponent}
     ListHeaderComponent={_ListHeaderComponent}
